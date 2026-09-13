@@ -47,15 +47,17 @@
         <div class="corner tl" aria-hidden="true"></div><div class="corner tr" aria-hidden="true"></div><div class="corner bl" aria-hidden="true"></div><div class="corner br" aria-hidden="true"></div><div class="console-scan" aria-hidden="true"></div>
         <div class="console-head"><span><i aria-hidden="true"></i> ITU_ATLAS // MAPA DE RELACIONES</span><span class="console-state">DATOS VERIFICADOS</span></div>
         <div class="radar-field"><span class="field-label">3 MATERIAS DE MUESTRA</span>
-          <svg class="radar" viewBox="0 0 320 290" role="img" aria-label="Radar ilustrativo con tres materias del programa que se pueden abrir">
+          <svg class="radar" viewBox="0 0 320 290" role="group" aria-label="Tres materias conectadas al plan; activá una señal para abrir sus relaciones">
+            <title>Materias conectadas al plan ITU</title>
             <defs><linearGradient id="sweep-gradient"><stop stop-color="#00d2dc" stop-opacity=".18"/><stop offset="1" stop-color="#00d2dc" stop-opacity="0"/></linearGradient></defs>
             <circle cx="160" cy="145" r="118" class="ring outer"/><circle cx="160" cy="145" r="90" class="ring dashed"/><circle cx="160" cy="145" r="61" class="ring middle"/><circle cx="160" cy="145" r="29" class="ring core"/>
             <path d="M42 145H278M160 27V263" class="axis"/><path d="M73 58l11 11m162-11l-11 11M73 232l11-11m162 11l-11-11" class="ticks"/>
+            <g class="radar-connections" aria-hidden="true"><path d="M160 145L206 94"/><path d="M160 145L120 194"/><path d="M160 145L211 201"/></g>
             <g class="radar-sweep"><path d="M160 145L226 48A118 118 0 0 1 278 145Z" fill="url(#sweep-gradient)"/><path d="M160 145H278" stroke="#00d2dc" stroke-width="2"/></g>
             <circle cx="160" cy="145" r="5" class="center-dot"/><circle cx="160" cy="145" r="10" class="center-pulse"/>
-            <a href="atlas.html?entry=1&subject=DSO250" aria-label="Abrir Programación Orientada a Objetos"><circle cx="206" cy="94" r="5" class="radar-point cyan"/><text x="215" y="88">DSO250 // POO</text></a>
-            <a href="atlas.html?entry=1&subject=DSO240" aria-label="Abrir Metodología y Testing"><circle cx="120" cy="194" r="5" class="radar-point white"/><text x="48" y="216">DSO240 // TESTING</text></a>
-            <a href="atlas.html?entry=1&subject=DSO190" aria-label="Abrir Ciencia de Datos Aplicada"><circle cx="211" cy="201" r="5" class="radar-point red"/><text x="221" y="210">DSO190 // DATOS</text></a>
+            <a href="atlas.html?entry=1&subject=DSO250" tabindex="0" aria-label="Abrir Programación Orientada a Objetos"><circle cx="206" cy="94" r="16" class="radar-hit"/><circle cx="206" cy="94" r="5" class="radar-point cyan"/><text x="215" y="88">DSO250 // POO</text></a>
+            <a href="atlas.html?entry=1&subject=DSO240" tabindex="0" aria-label="Abrir Metodología y Testing"><circle cx="120" cy="194" r="16" class="radar-hit"/><circle cx="120" cy="194" r="5" class="radar-point white"/><text x="48" y="216">DSO240 // TESTING</text></a>
+            <a href="atlas.html?entry=1&subject=DSO190" tabindex="0" aria-label="Abrir Ciencia de Datos Aplicada"><circle cx="211" cy="201" r="16" class="radar-hit"/><circle cx="211" cy="201" r="5" class="radar-point red"/><text x="221" y="210">DSO190 // DATOS</text></a>
           </svg>
           <span class="field-coordinate">VISTA CONCEPTUAL // SIN CORRELATIVIDADES INFERIDAS</span>
         </div>

@@ -26,3 +26,24 @@ dialog{border-radius:0;background:#0b1517;border-color:#3b6064;color:#f4fafa;box
 @media(max-width:1080px){.system-mark{display:none}}
 @media(max-width:600px){.topbar{top:8px;left:9px;right:9px;height:101px;padding:10px 12px}.brand{font-size:19px}.brand-mark{font-size:27px}.brand small{font-size:7px}.board-toolbar{top:123px;left:14px;right:14px}.board-title{top:178px;left:22px}.board-title h2{font-size:26px}.board-title p{font-size:11px}.timeline-nav{top:290px;left:22px;right:22px}.details,.explorer{top:168px;bottom:100px;left:9px;right:9px;width:calc(100% - 18px);border-radius:0}.detail-top,.detail-section{padding:20px}.detail-top h2{font-size:25px}.detail-section p,.detail-top p{font-size:13px}.catalogue{inset:168px 9px 44px;padding:18px}.catalogue-heading h2{font-size:24px}.legend{font-size:8px;max-width:56%}.legend span{gap:3px}.canvas-bottom{left:10px;right:10px}.statusbar{padding:0 10px;font-size:8px}.statusbar button{font-size:8px;max-width:140px}.graph-pagination{right:10px}}
 @media(prefers-reduced-motion:reduce){.brand-mark i,.system-mark i,.intro-copy h2:after{animation:none!important}.map-surface:after{opacity:.18}}
+
+/* Directional traffic makes every rendered relationship legible and animated. */
+#edges{pointer-events:none}
+#edges .edge-line{stroke-width:1.8;opacity:.8;filter:drop-shadow(0 0 4px #00d2dc7a);animation:none}
+#edges .edge-line.edge-dashed{stroke-dasharray:5 6;animation:edge-dash 14s linear infinite}
+#edges .edge-pulse{opacity:.95;stroke-dasharray:5 300;stroke-linecap:round;filter:drop-shadow(0 0 5px #00f5ff);animation:edge-travel 4.5s linear infinite}
+#edges .edge-end{filter:drop-shadow(0 0 5px #00d2dc)}
+.graph-node:hover .card-bg,.graph-node:focus .card-bg{stroke:#00f5ff;filter:drop-shadow(0 0 7px #00d2dc8c)}
+.graph-node:hover .node-reticle,.graph-node:focus .node-reticle{opacity:1;filter:drop-shadow(0 0 5px #00f5ff)}
+.graph-node:hover .node-port{filter:drop-shadow(0 0 8px #00d2dc)}
+@keyframes edge-dash{to{stroke-dashoffset:-154}}
+@keyframes edge-travel{to{stroke-dashoffset:-305}}
+@media(prefers-reduced-motion:reduce){#edges .edge-line.edge-dashed,#edges .edge-pulse{animation:none!important}#edges .edge-pulse{display:none}}
+@media(max-width:760px){
+  .topbar{top:9px;left:10px;right:10px;height:102px;align-items:flex-start;flex-wrap:wrap;padding:10px 13px;gap:7px}
+  .brand{height:35px;font-size:19px;gap:7px}.brand-mark{font-size:28px}.brand small{font-size:7px}
+  .view-switch{width:100%;height:36px;justify-content:space-between;padding:3px}.view-switch button{flex:1;padding:5px 8px;font-size:11px}
+  .board-toolbar{top:128px;left:16px;right:16px}.board-title{top:185px;left:24px}
+  .details,.explorer{top:174px;bottom:106px}.catalogue{inset:178px 12px 45px;padding:20px 14px;overflow-x:hidden}
+  .catalogue-grid{grid-template-columns:minmax(0,1fr)}.role-card{min-width:0}.graph-pagination{right:18px;bottom:111px}
+}

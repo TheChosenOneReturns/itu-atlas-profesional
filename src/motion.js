@@ -22,9 +22,9 @@ function animateGraph() {
     if (id !== latestGraph) return;
     const graph = $("#graph");
     const nodes = [...graph.querySelectorAll(".graph-node")];
-    const paths = [...graph.querySelectorAll("#edges path")];
+    const paths = [...graph.querySelectorAll("#edges .edge-line")];
     if (nodes.length) animate(nodes, { opacity: [0, 1] }, { duration: 0.52, delay: stagger(0.035, { startDelay: 0.08 }), ease: "easeOut" });
-    if (paths.length) animate(paths, { opacity: [0, 0.92] }, { duration: 0.7, delay: stagger(0.045), ease: "easeOut" });
+    if (paths.length) animate(paths, { opacity: [0, 0.92], pathLength: [0, 1] }, { duration: 0.8, delay: stagger(0.06), ease: "easeOut" });
     hoverCleanup = hover(".graph-node", (node) => {
       const shell = node.querySelector(".node-shell");
       const icon = node.querySelector(".node-icon");

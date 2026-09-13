@@ -17,3 +17,26 @@
 @media(max-width:900px){.gateway-header{gap:10px}.header-mode{display:none}.gateway-main{width:min(100% - 40px,740px)}.hero{grid-template-columns:1fr;gap:38px;min-height:0;padding:38px 0}.hero h1{font-size:clamp(50px,10vw,82px)}.hud-console{width:min(100%,580px);margin:auto}.feature-grid{grid-template-columns:1fr;gap:12px}.feature-card{min-height:0}.protocol-audience{display:none}.gateway-footer{flex-direction:column;align-items:flex-start;gap:3px}}
 @media(max-width:560px){.gateway-header{padding:10px 15px;min-height:61px}.gateway-brand{padding:6px 8px}.brand-itu{font-size:18px}.brand-atlas{font-size:9px}.clock-label,#local-clock{display:none}.quick-access{font-size:9px;padding:9px}.gateway-main{width:calc(100% - 30px);padding:26px 0 37px}.protocol-row{font-size:8px;padding-bottom:14px}.protocol-row>div{gap:7px}.hero{padding:27px 0 34px}.welcome-strap{gap:7px;margin-bottom:20px}.welcome-strap>span:nth-child(2){font-size:8px;letter-spacing:.08em}.hazard{width:20px;height:11px}.hero h1{font-size:clamp(37px,10vw,60px);letter-spacing:-.08em;margin-bottom:23px}.manifesto{padding-left:13px;margin-bottom:24px}.manifesto h2{font-size:15px}.manifesto p{font-size:11px}.hero-actions{display:grid;grid-template-columns:1fr;gap:9px}.hero-actions a{width:100%;min-height:49px;justify-content:flex-start}.action-primary{font-size:10px}.action-secondary{font-size:10px}.hero-metrics{padding:12px 4px}.hero-metrics div{padding:0 7px}.hero-metrics div>span{font-size:7px}.hero-metrics strong{font-size:19px}.hero-metrics strong small{font-size:8px}.hero-metrics p{font-size:6.5px}.hud-console{padding:18px}.console-head{font-size:8px}.console-state{font-size:7px}.radar-field{height:250px}.console-links a{font-size:8px}.console-links a b{font-size:8px}.feature-grid{padding-top:24px}.feature-card{padding:18px}.gateway-footer{padding:14px 15px;font-size:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.brand-dot,.radar-sweep,.center-pulse,.console-scan{animation:none!important}.feature-card,.hero-actions a,.quick-access{transition:none!important}}
+
+/* Sharper kinetic layer from the reference, with text sized to its actual column. */
+.hero h1{font-size:clamp(40px,4.7vw,80px)}
+.title-outline{isolation:isolate}
+.title-outline::before,.title-outline::after{content:attr(data-text);position:absolute;inset:0;width:100%;height:100%;background:none;pointer-events:none;opacity:0}
+.title-outline::before{color:#00d2dc;clip-path:inset(22% 0 54% 0);animation:glitch-cyan 6.2s steps(1,end) infinite}
+.title-outline::after{color:#f5f8f9;clip-path:inset(67% 0 12% 0);animation:glitch-white 6.2s steps(1,end) infinite}
+.ambient-grid:after{animation:grid-travel 18s linear infinite}
+.radar-connections path{stroke:#00d2dc;stroke-width:1.2;stroke-dasharray:5 7;fill:none;opacity:.65;animation:signal-flow 4s linear infinite}
+.radar-connections path:nth-child(2){stroke:#dceced;animation-delay:-1.2s}.radar-connections path:nth-child(3){stroke:#d52415;animation-delay:-2.1s}
+.radar-hit{fill:transparent;cursor:pointer}.radar a{cursor:pointer}.radar a:focus-visible{outline:none}.radar a:focus-visible .radar-point{stroke:#fff;stroke-width:3;filter:drop-shadow(0 0 8px #fff)}
+.radar a:hover .radar-point{filter:drop-shadow(0 0 9px currentColor)}
+.hud-console{transition:border-color .3s,box-shadow .3s}.hud-console:hover{border-color:#00d2dc8f;box-shadow:0 22px 70px #000c,0 0 28px #00d2dc31}
+.feature-card::after{content:"";position:absolute;right:0;bottom:0;width:14px;height:14px;border-right:2px solid #00d2dc;border-bottom:2px solid #00d2dc;opacity:.65;transition:width .25s,height .25s,opacity .25s}.feature-card:hover::after{width:24px;height:24px;opacity:1}
+.action-primary{position:relative;overflow:hidden}.action-primary::before{content:"";position:absolute;top:0;bottom:0;left:-90%;width:35%;background:linear-gradient(90deg,transparent,#ffffff51,transparent);transform:skewX(-18deg);pointer-events:none}.action-primary:hover::before{animation:button-scan .65s ease-out forwards}
+@keyframes glitch-cyan{0%,89%,95%,100%{opacity:0;transform:translate(0)}90%,93%{opacity:.7;transform:translate(-4px,1px)}91%,94%{opacity:.45;transform:translate(4px,-1px)}}
+@keyframes glitch-white{0%,90%,96%,100%{opacity:0;transform:translate(0)}91%,94%{opacity:.75;transform:translate(3px,-2px)}92%,95%{opacity:.4;transform:translate(-3px,1px)}}
+@keyframes grid-travel{to{background-position:0 0,0 52px}}
+@keyframes signal-flow{to{stroke-dashoffset:-120}}
+@keyframes button-scan{to{left:130%}}
+@media(max-width:900px){.hero h1{font-size:clamp(32px,7.6vw,70px)}}
+@media(max-width:560px){.hero h1{font-size:clamp(28px,7.4vw,46px)}}
+@media(prefers-reduced-motion:reduce){.title-outline::before,.title-outline::after,.ambient-grid:after,.radar-connections path,.action-primary:hover::before{animation:none!important}}
