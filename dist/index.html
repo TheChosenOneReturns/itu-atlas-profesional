@@ -1,13 +1,76 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050608"><title>ITU Atlas · Mapa de posibilidades</title><meta name="description" content="Explorá 250 perfiles laborales y sus relaciones con las materias del ITU. Preparación curricular, brechas y fuentes en un mapa interactivo."><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050608'/%3E%3Cpath d='M6 6h16l4 4v16H10l-4-4z' fill='none' stroke='%2300d2dc' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23d52415'/%3E%3Cpath d='M11 16h11m-11 5h11' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="canvas.css"><link rel="stylesheet" href="dark.css"><link rel="stylesheet" href="techwear.css"><script src="app.js" defer></script><script src="motion.bundle.js" defer></script></head>
-<body class="intro-active overview-mode">
-<div id="intro-overlay" class="intro-overlay" aria-label="Introducción al atlas"><div class="intro-copy"><span class="eyebrow">UN PLAN. MUCHOS CAMINOS.</span><h2>Tu carrera, conectada.</h2><p>Elegí una familia. Arrastrá o desplazá el lienzo para recorrerlo.</p><span class="intro-progress" aria-hidden="true"><span></span></span><button id="skip-intro" type="button" aria-label="Omitir introducción">Explorar ahora <span aria-hidden="true">↗</span></button></div></div>
-<header class="topbar"><a class="brand" href="#" aria-label="ITU Atlas, vista general"><span class="brand-mark" aria-hidden="true">i<span>t</span>u<i></i></span><span><strong>ITU</strong> <b>ATLAS</b><small>DESARROLLO DE SOFTWARE // UNCUYO</small></span></a><div class="system-mark" aria-hidden="true"><i></i> ENLACE ACTIVO <span>///</span> ARCH.2026</div><div class="view-switch" aria-label="Visualización"><button id="map-view" class="active" aria-pressed="true">◉ Mapa</button><button id="timeline-view" aria-pressed="false">⌁ Trayectoria</button><button id="list-view" aria-pressed="false">▦ Catálogo</button></div><div class="top-actions"><button id="method-open">Cómo leer el mapa <span>↗</span></button></div></header>
-<div class="workspace">
-<aside id="explorer" class="explorer" aria-label="Explorar materias y puestos"><button id="close-explorer" class="overlay-close" aria-label="Cerrar explorador">×</button><div class="explorer-heading"><span class="eyebrow">TU PUNTO DE PARTIDA</span><h1>Conectá lo que aprendés.</h1><p>Descubrí a dónde te puede llevar.</p></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Materia, puesto o tecnología…" aria-label="Buscar materias o puestos"><kbd>/</kbd></label><div class="explorer-tabs" role="tablist" aria-label="Tipo de búsqueda"><button id="tab-subjects" role="tab" aria-selected="true">Materias <span>33</span></button><button id="tab-roles" role="tab" aria-selected="false">Puestos <span>250</span></button></div><div class="filter-fields" id="role-filters" hidden><label>Familia<select id="family-filter"><option value="">Todas las familias</option></select></label><label>Preparación mínima <strong id="min-value">0%</strong><input id="min-score" type="range" min="0" max="85" step="5" value="0"></label><label>Nivel<select id="level-filter"><option value="">Todos los niveles</option><option>Inicial</option><option>Trainee</option><option>Experiencia avanzada</option></select></label></div><label class="extra-relations"><input type="checkbox" id="transverse-extra"> Incluir aportes transversales y práctica</label><div class="list-caption"><span id="result-count">Cargando investigación…</span><button id="clear-filters" aria-label="Limpiar filtros">Restablecer</button></div><div id="explorer-list" class="explorer-list" role="tabpanel" tabindex="0"></div><div class="explorer-footer"><span class="tiny-label">PLAN ITU · UNCUYO</span><strong>2.104 h <span>·</span> 32 espacios por trayectoria</strong><p>Dos alternativas para un único optativo.</p></div></aside>
-<main class="main-area"><div class="board-toolbar"><div class="breadcrumbs"><button id="overview">Atlas</button><span>/</span><span id="crumb">Vista general</span></div><div class="board-actions"><button id="back" disabled aria-label="Volver a la selección anterior">↶</button><button id="toggle-explorer" class="explorer-trigger" aria-label="Mostrar explorador">☰ Explorar</button><label class="transverse-control"><input id="transverse" type="checkbox"> Transversales + práctica</label></div></div><section id="map-surface" class="map-surface" aria-label="Mapa de relaciones"><div class="board-title"><span class="eyebrow">UN PLAN. MUCHOS CAMINOS.</span><h2 id="board-heading">Tu universo de posibilidades</h2><p id="board-subtitle">14 familias para explorar, una materia a la vez.</p></div><svg id="graph" role="group" aria-label="Mapa interactivo. Usá los nodos o el explorador para seleccionar. Arrastrá el fondo para mover el mapa." tabindex="0"><defs><linearGradient id="node-sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fffee" stop-opacity=".16"/><stop offset=".38" stop-color="#9fffee" stop-opacity=".03"/><stop offset="1" stop-color="#40b5d5" stop-opacity=".12"/></linearGradient><filter id="card-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/></filter></defs><g id="viewport"><g id="stage-labels"></g><g id="edges"></g><g id="nodes"></g></g></svg><div id="timeline-nav" class="timeline-nav" hidden aria-label="Etapas de la carrera"></div><div id="graph-empty" class="empty-state" hidden></div><div class="canvas-bottom"><div class="legend"><span><i class="key subject"></i>Materia</span><span><i class="key role"></i>Puesto</span><span><i class="key transfer"></i>Base transferible</span></div><div class="zoom-controls"><button id="zoom-out" aria-label="Alejar mapa">−</button><span id="zoom-value">100%</span><button id="zoom-in" aria-label="Acercar mapa">+</button><span class="divider"></span><button id="fit" aria-label="Ajustar mapa a pantalla">⛶</button></div></div><div class="graph-pagination" id="graph-pagination" hidden></div></section><section id="catalogue" class="catalogue" hidden><div class="catalogue-heading"><div><span class="eyebrow">EXPLORÁ EL DETALLE</span><h2>Posibilidades laborales</h2><p id="catalogue-count"></p></div><a class="download-button" href="puestos.csv" download="puestos_itu_internacional.csv">↓ CSV completo</a></div><div id="catalogue-grid" class="catalogue-grid"></div></section><footer class="statusbar"><span id="status-counts">250 perfiles <i>·</i> 33 materias <i>·</i> 79 fuentes</span><button id="disclaimer-open">Preparación curricular estimada <span>ⓘ</span></button></footer></main>
-<aside id="details" class="details" aria-label="Detalle de la selección"><div id="detail-content"></div></aside>
-</div>
-<dialog id="info-dialog"><div class="dialog-header"><div><span class="eyebrow">LA EVIDENCIA DETRÁS DEL MAPA</span><h2>Cómo interpretar los resultados</h2></div><button id="close-dialog" aria-label="Cerrar información">×</button></div><div class="dialog-tabs"><button id="method-tab" class="active">Metodología</button><button id="sources-tab">Fuentes · 79</button></div><div id="dialog-body"></div></dialog><div id="live-status" class="sr-only" aria-live="polite"></div>
-<noscript><p>Activá JavaScript para explorar el mapa. También podés <a href="puestos.csv">descargar el catálogo CSV</a>.</p></noscript>
-</body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050608">
+  <meta name="description" content="ITU Atlas: explorá el plan de Desarrollo de Software y sus relaciones con 250 perfiles laborales del mercado internacional.">
+  <title>ITU Atlas // Tu trayectoria conectada</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050608'/%3E%3Cpath d='M6 6h16l4 4v16H10l-4-4z' fill='none' stroke='%2300d2dc' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23d52415'/%3E%3Cpath d='M11 16h11m-11 5h11' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="landing.css">
+  <script src="landing.bundle.js" defer></script>
+</head>
+<body>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="gateway-header">
+    <a class="gateway-brand" href="index.html" aria-label="ITU Atlas, inicio">
+      <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">// ATLAS</span>
+    </a>
+    <div class="header-readouts" aria-label="Datos del atlas">
+      <span>ARCH: <b>DESARROLLO DE SOFTWARE</b></span><i aria-hidden="true"></i><span>SECTOR: <b>ITU · UNCUYO</b></span>
+    </div>
+    <div class="header-mode"><span>[PLAN_ITU]</span> EXPLORACIÓN CURRICULAR <b>2026</b></div>
+    <div class="header-right"><span class="clock-label">HORA LOCAL</span><time id="local-clock">--:--:--</time><a class="quick-access" href="atlas.html?entry=1">↗ ACCESO RÁPIDO</a></div>
+  </header>
+
+  <main class="gateway-main">
+    <div class="protocol-row">
+      <div><span class="protocol-tag">PROTOCOLO 01</span><span class="protocol-step active">EXPLORÁ</span><span class="protocol-separator">≫</span><span class="protocol-step">CONECTÁ</span><span class="protocol-separator">≫</span><span class="protocol-step alert">EVALUÁ</span></div>
+      <span class="protocol-audience">ESTUDIANTES Y EGRESADOS DE SOFTWARE <i>//</i> ITU UNCUYO</span>
+    </div>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="welcome-strap"><span class="hazard hazard-white" aria-hidden="true"></span><span>[ UN PLAN. MUCHOS CAMINOS. // 2026 ]</span><i aria-hidden="true"></i></div>
+        <h1 id="hero-title"><span>DOMINÁ TU</span><span class="title-outline" data-text="TRAYECTORIA.">TRAYECTORIA.</span></h1>
+        <div class="manifesto"><h2>La carrera conectada con el trabajo en tecnología.</h2><p>Recorré las materias como nodos, descubrí qué conocimientos aporta cada programa y explorá los perfiles laborales que se relacionan con el plan. Cada porcentaje es una estimación curricular explicada, no una promesa de empleo.</p></div>
+        <div class="hero-actions"><a class="action-primary" href="atlas.html?entry=1"><span class="action-prefix">[+]</span> INGRESAR AL MAPA DE NODOS <span class="action-arrow">→</span></a><a class="action-secondary" href="atlas.html?entry=1&view=list"><span aria-hidden="true" class="red-square"></span> EXPLORAR PERFILES <span>↗</span></a></div>
+        <div class="hero-metrics" aria-label="Alcance de la investigación">
+          <div><span>CARGA HORARIA</span><strong>2.104 <small>H</small></strong><p>PLAN DE 6 SEMESTRES</p></div>
+          <div><span>MALLA CURRICULAR</span><strong>33 <small>REGISTROS</small></strong><p>32 ESPACIOS POR TRAYECTORIA</p></div>
+          <div><span>PERFILES ESTUDIADOS</span><strong>250 <small>ROLES</small></strong><p>79 FUENTES CONSULTADAS</p></div>
+        </div>
+      </div>
+
+      <div class="hud-console" aria-label="Accesos a la investigación">
+        <div class="corner tl" aria-hidden="true"></div><div class="corner tr" aria-hidden="true"></div><div class="corner bl" aria-hidden="true"></div><div class="corner br" aria-hidden="true"></div><div class="console-scan" aria-hidden="true"></div>
+        <div class="console-head"><span><i aria-hidden="true"></i> ITU_ATLAS // MAPA DE RELACIONES</span><span class="console-state">DATOS VERIFICADOS</span></div>
+        <div class="radar-field"><span class="field-label">3 MATERIAS DE MUESTRA</span>
+          <svg class="radar" viewBox="0 0 320 290" role="img" aria-label="Radar ilustrativo con tres materias del programa que se pueden abrir">
+            <defs><linearGradient id="sweep-gradient"><stop stop-color="#00d2dc" stop-opacity=".18"/><stop offset="1" stop-color="#00d2dc" stop-opacity="0"/></linearGradient></defs>
+            <circle cx="160" cy="145" r="118" class="ring outer"/><circle cx="160" cy="145" r="90" class="ring dashed"/><circle cx="160" cy="145" r="61" class="ring middle"/><circle cx="160" cy="145" r="29" class="ring core"/>
+            <path d="M42 145H278M160 27V263" class="axis"/><path d="M73 58l11 11m162-11l-11 11M73 232l11-11m162 11l-11-11" class="ticks"/>
+            <g class="radar-sweep"><path d="M160 145L226 48A118 118 0 0 1 278 145Z" fill="url(#sweep-gradient)"/><path d="M160 145H278" stroke="#00d2dc" stroke-width="2"/></g>
+            <circle cx="160" cy="145" r="5" class="center-dot"/><circle cx="160" cy="145" r="10" class="center-pulse"/>
+            <a href="atlas.html?entry=1&subject=DSO250" aria-label="Abrir Programación Orientada a Objetos"><circle cx="206" cy="94" r="5" class="radar-point cyan"/><text x="215" y="88">DSO250 // POO</text></a>
+            <a href="atlas.html?entry=1&subject=DSO240" aria-label="Abrir Metodología y Testing"><circle cx="120" cy="194" r="5" class="radar-point white"/><text x="48" y="216">DSO240 // TESTING</text></a>
+            <a href="atlas.html?entry=1&subject=DSO190" aria-label="Abrir Ciencia de Datos Aplicada"><circle cx="211" cy="201" r="5" class="radar-point red"/><text x="221" y="210">DSO190 // DATOS</text></a>
+          </svg>
+          <span class="field-coordinate">VISTA CONCEPTUAL // SIN CORRELATIVIDADES INFERIDAS</span>
+        </div>
+        <nav class="console-links" aria-label="Modos de exploración"><a href="atlas.html?entry=1&view=timeline"><span>[01] TRAYECTORIA CURRICULAR</span><b>6 SEMESTRES ↗</b></a><a href="atlas.html?entry=1"><span>[02] MAPA MATERIA–PERFIL</span><b>2.551 RELACIONES ↗</b></a><a href="atlas.html?entry=1&view=list"><span>[03] CATÁLOGO LABORAL</span><b>250 PERFILES ↗</b></a></nav>
+        <div class="console-foot"><span class="barcode" aria-hidden="true"></span><span>PLAN ITU · UNCUYO <b>DESARROLLO DE SOFTWARE</b></span></div>
+      </div>
+    </section>
+
+    <section class="feature-grid" aria-label="Qué podés explorar">
+      <a class="feature-card" href="atlas.html?entry=1"><div><span>01 // CONEXIONES</span><small>[NODE_SYSTEM]</small></div><h2>UNA MATERIA, VARIOS CAMINOS</h2><p>Seleccioná un nodo para ver qué parte del programa aporta a distintos perfiles, con su aplicación concreta y sus límites.</p><b>ENTRAR AL MAPA ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=timeline"><div><span>02 // TRAYECTORIA</span><small>[SEM_01—06]</small></div><h2>SEIS SEMESTRES VISIBLES</h2><p>Explorá el orden de cursado y los tramos anuales. La línea temporal muestra el plan; no inventa correlatividades.</p><b>VER EL RECORRIDO ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=list"><div><span>03 // EVIDENCIA</span><small>[LABOR_AUDIT]</small></div><h2>PORCENTAJES EXPLICADOS</h2><p>Revisá 250 perfiles, las materias asociadas, las brechas para incorporarte y las fuentes detrás de cada estimación.</p><b>EXPLORAR PERFILES ↗</b></a>
+    </section>
+  </main>
+
+  <footer class="gateway-footer"><span><i aria-hidden="true"></i> INSTITUTO TECNOLÓGICO UNIVERSITARIO // UNCUYO <b>TECNICATURA EN DESARROLLO DE SOFTWARE</b></span><span>ESTIMACIONES CURRICULARES, NO VACANTES ABIERTAS <strong>///</strong> ITU ATLAS 2026</span></footer>
+</body>
+</html>

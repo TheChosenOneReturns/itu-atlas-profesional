@@ -3,9 +3,11 @@
   "private": true,
   "version": "1.1.0",
   "scripts": {
-    "start": "python -m http.server 8000 --directory dist",
-    "dev": "python -m http.server 8000 --directory dist",
-    "build:motion": "esbuild src/motion.js --bundle --minify --format=iife --target=es2020 --outfile=dist/motion.bundle.js"
+    "start": "node serve.mjs",
+    "dev": "node serve.mjs",
+    "build": "npm run build:motion && npm run build:landing",
+    "build:motion": "esbuild src/motion.js --bundle --minify --format=iife --target=es2020 --outfile=dist/motion.bundle.js",
+    "build:landing": "esbuild src/landing.js --bundle --minify --format=iife --target=es2020 --outfile=dist/landing.bundle.js"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
