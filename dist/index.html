@@ -8,6 +8,7 @@
   <title>ITU Atlas // Tu trayectoria conectada</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050608'/%3E%3Cpath d='M6 6h16l4 4v16H10l-4-4z' fill='none' stroke='%2300d2dc' stroke-width='1.5'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%23d52415'/%3E%3Cpath d='M11 16h11m-11 5h11' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="landing-polish.css">
   <script src="landing.bundle.js" defer></script>
 </head>
 <body>
@@ -18,10 +19,10 @@
       <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">// ATLAS</span>
     </a>
     <div class="header-readouts" aria-label="Datos del atlas">
-      <span>ARCH: <b>DESARROLLO DE SOFTWARE</b></span><i aria-hidden="true"></i><span>SECTOR: <b>ITU · UNCUYO</b></span>
+      <span>ARCH: <b>DESARROLLO DE SOFTWARE</b></span><i aria-hidden="true"></i><span>SECTOR: <b>ITU · UNCUYO</b></span><i aria-hidden="true"></i><span class="header-signal"><span class="signal-beacon" aria-hidden="true"></span> DATOS LOCALES <b>250 PERFILES</b></span>
     </div>
-    <div class="header-mode"><span>[PLAN_ITU]</span> EXPLORACIÓN CURRICULAR <b>2026</b></div>
-    <div class="header-right"><span class="clock-label">HORA LOCAL</span><time id="local-clock">--:--:--</time><a class="quick-access" href="atlas.html?entry=1">↗ ACCESO RÁPIDO</a></div>
+    <div class="header-mode"><span>[PLAN_ITU]</span> MAPA CURRICULAR <b>LOCAL</b></div>
+    <div class="header-right"><span class="clock-block"><span class="clock-label">TELEMETRÍA LOCAL</span><time id="local-clock">--:--:--</time></span><a class="quick-access" href="atlas.html?entry=1"><span aria-hidden="true">»</span> ACCESO RÁPIDO <span class="quick-arrow" aria-hidden="true">↗</span></a></div>
   </header>
 
   <main class="gateway-main">
@@ -33,7 +34,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="welcome-strap"><span class="hazard hazard-white" aria-hidden="true"></span><span>[ UN PLAN. MUCHOS CAMINOS. // 2026 ]</span><i aria-hidden="true"></i></div>
-        <h1 id="hero-title"><span>DOMINÁ TU</span><span class="title-outline" data-text="TRAYECTORIA.">TRAYECTORIA.</span></h1>
+        <h1 id="hero-title" aria-label="Dominá tu trayectoria"><span>DOMINÁ TU</span><span class="title-outline" data-text="TRAYECTORIA.">TRAYECTORIA.</span></h1>
         <div class="manifesto"><h2>La carrera conectada con el trabajo en tecnología.</h2><p>Recorré las materias como nodos, descubrí qué conocimientos aporta cada programa y explorá los perfiles laborales que se relacionan con el plan. Cada porcentaje es una estimación curricular explicada, no una promesa de empleo.</p></div>
         <div class="hero-actions"><a class="action-primary" href="atlas.html?entry=1"><span class="action-prefix">[+]</span> INGRESAR AL MAPA DE NODOS <span class="action-arrow">→</span></a><a class="action-secondary" href="atlas.html?entry=1&view=list"><span aria-hidden="true" class="red-square"></span> EXPLORAR PERFILES <span>↗</span></a></div>
         <div class="hero-metrics" aria-label="Alcance de la investigación">
@@ -67,9 +68,9 @@
     </section>
 
     <section class="feature-grid" aria-label="Qué podés explorar">
-      <a class="feature-card" href="atlas.html?entry=1"><div><span>01 // CONEXIONES</span><small>[NODE_SYSTEM]</small></div><h2>UNA MATERIA, VARIOS CAMINOS</h2><p>Seleccioná un nodo para ver qué parte del programa aporta a distintos perfiles, con su aplicación concreta y sus límites.</p><b>ENTRAR AL MAPA ↗</b></a>
-      <a class="feature-card" href="atlas.html?entry=1&view=timeline"><div><span>02 // TRAYECTORIA</span><small>[SEM_01—06]</small></div><h2>SEIS SEMESTRES VISIBLES</h2><p>Explorá el orden de cursado y los tramos anuales. La línea temporal muestra el plan; no inventa correlatividades.</p><b>VER EL RECORRIDO ↗</b></a>
-      <a class="feature-card" href="atlas.html?entry=1&view=list"><div><span>03 // EVIDENCIA</span><small>[LABOR_AUDIT]</small></div><h2>PORCENTAJES EXPLICADOS</h2><p>Revisá 250 perfiles, las materias asociadas, las brechas para incorporarte y las fuentes detrás de cada estimación.</p><b>EXPLORAR PERFILES ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1"><img class="feature-motif" src="assets/stitch-orbit.svg" alt="" aria-hidden="true"><div><span>01 // CONEXIONES</span><small>[NODE_SYSTEM]</small></div><h2>UNA MATERIA, VARIOS CAMINOS</h2><p>Seleccioná un nodo para ver qué parte del programa aporta a distintos perfiles, con su aplicación concreta y sus límites.</p><b>ENTRAR AL MAPA ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=timeline"><img class="feature-motif" src="assets/stitch-tunnel.svg" alt="" aria-hidden="true"><div><span>02 // TRAYECTORIA</span><small>[SEM_01—06]</small></div><h2>SEIS SEMESTRES VISIBLES</h2><p>Explorá el orden de cursado y los tramos anuales. La línea temporal muestra el plan; no inventa correlatividades.</p><b>VER EL RECORRIDO ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=list"><img class="feature-motif" src="assets/stitch-contours.svg" alt="" aria-hidden="true"><div><span>03 // EVIDENCIA</span><small>[LABOR_AUDIT]</small></div><h2>PORCENTAJES EXPLICADOS</h2><p>Revisá 250 perfiles, las materias asociadas, las brechas para incorporarte y las fuentes detrás de cada estimación.</p><b>EXPLORAR PERFILES ↗</b></a>
     </section>
   </main>
 

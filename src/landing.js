@@ -14,6 +14,9 @@ setInterval(updateLocalClock, 1000);
 
 if (!prefersReducedMotion.matches) {
   animate(".gateway-header", { opacity: [0, 1], y: [-14, 0] }, { duration: 0.65, ease: "easeOut" });
+  animate(".gateway-brand, .header-readouts > span, .header-mode, .clock-block, .quick-access", {
+    opacity: [0, 1], y: [-8, 0]
+  }, { duration: 0.48, delay: stagger(0.07, { startDelay: 0.08 }), ease: "easeOut" });
   animate(".protocol-row, .welcome-strap, .hero h1, .manifesto, .hero-actions, .hero-metrics", {
     opacity: [0, 1], y: [20, 0]
   }, { duration: 0.68, delay: stagger(0.1, { startDelay: 0.12 }), ease: "easeOut" });
@@ -25,6 +28,10 @@ if (!prefersReducedMotion.matches) {
   hover(".hero-actions a, .feature-card, .console-links a", element => {
     animate(element, { scale: 1.015 }, { type: "spring", stiffness: 440, damping: 32 });
     return () => animate(element, { scale: 1 }, { type: "spring", stiffness: 440, damping: 32 });
+  });
+  hover(".gateway-brand, .quick-access", element => {
+    animate(element, { y: -2 }, { type: "spring", stiffness: 380, damping: 28 });
+    return () => animate(element, { y: 0 }, { type: "spring", stiffness: 380, damping: 28 });
   });
   hover(".radar a", element => {
     const point = element.querySelector(".radar-point");

@@ -6,10 +6,11 @@ Los porcentajes son estimaciones de preparación curricular; no representan prob
 
 ## Archivos
 
-- `dist/index.html` y `dist/landing.css`: portada y accesos a las tres vistas.
+- `dist/index.html`, `dist/landing.css` y `dist/landing-polish.css`: portada y accesos a las tres vistas.
 - `dist/atlas.html`: explorador interactivo del plan y los perfiles.
 - `dist/app.js`: navegación, canvas SVG, arrastre, zoom, filtros y fichas.
-- `dist/style.css`, `dist/canvas.css`, `dist/dark.css` y `dist/techwear.css`: composición del lienzo y sistema visual Techwear.
+- `dist/style.css`, `dist/canvas.css`, `dist/dark.css`, `dist/techwear.css` y `dist/minimal-atlas.css`: composición del lienzo y sistema visual Techwear.
+- `dist/assets/stitch-*.svg`: motivos vectoriales locales basados en las referencias de Stitch aportadas.
 - `src/motion.js` y `src/landing.js`: animaciones con Motion; sus paquetes compilados se sirven desde `dist`.
 - `dist/fonts/`: Syne y JetBrains Mono locales.
 - `dist/data.json`: investigación y cronología curricular, sin notas ni información del alumno.
