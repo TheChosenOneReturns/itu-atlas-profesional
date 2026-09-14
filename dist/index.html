@@ -10,21 +10,25 @@
   <link rel="stylesheet" href="landing.css">
   <link rel="stylesheet" href="landing-polish.css">
   <link rel="stylesheet" href="crt-techwear.css">
+  <link rel="stylesheet" href="hud-header.css">
   <script src="landing.bundle.js" defer></script>
+  <script src="hud-clock.js" defer></script>
 </head>
 <body>
   <div class="crt-overlay" aria-hidden="true"></div>
   <div class="ambient-grid" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
-  <header class="gateway-header">
-    <a class="gateway-brand" href="index.html" aria-label="ITU Atlas, inicio">
-      <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">// ATLAS</span><img class="brand-glyph" src="assets/stitch-glyph-crosshair.svg" alt="" aria-hidden="true">
+  <header class="gateway-header hud-header">
+    <a class="gateway-brand hud-brand" href="index.html" aria-label="ITU Atlas, inicio">
+      <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">//<br>ATLAS</span>
     </a>
-    <div class="header-readouts" aria-label="Datos del atlas">
-      <span>ARCH: <b>DESARROLLO DE SOFTWARE</b></span><i aria-hidden="true"></i><span>SECTOR: <b>ITU · UNCUYO</b></span><i aria-hidden="true"></i><span class="header-signal"><span class="signal-beacon" aria-hidden="true"></span> DATOS LOCALES <b>250 PERFILES</b></span>
+    <div class="header-readouts hud-readouts" aria-label="Identidad visual del sistema">
+      <span class="hud-readout"><span>ARCH: <b>SYS-</b></span><b>GATEWAY_V2.4</b></span>
+      <span class="hud-readout"><span>SECTOR:</span><b class="hud-cyan">MZA_026-HQ</b></span>
+      <span class="hud-readout hud-link-state"><span class="hud-green">ENLACE ACTIVO</span><b class="hud-green">(0.02ms)</b></span>
     </div>
-    <div class="header-mode"><img src="assets/stitch-glyph-radar.svg" alt="" aria-hidden="true"><span>[PLAN_ITU]</span> MAPA CURRICULAR <b>LOCAL</b></div>
-    <div class="header-right"><span class="clock-block"><span class="clock-label">TELEMETRÍA LOCAL</span><time id="local-clock">--:--:--</time></span><a class="quick-access" href="atlas.html?entry=1"><span aria-hidden="true">»</span> ACCESO RÁPIDO <span class="quick-arrow" aria-hidden="true">↗</span></a></div>
+    <div class="header-mode hud-protocol"><span>[PROT_TECHWEAR]</span><span class="hud-mode-copy">MODO: AUDITORÍA &amp;<br>INMERSIÓN</span><b>ONLINE</b></div>
+    <div class="header-right hud-right"><span class="clock-block hud-clock"><span class="clock-label">TELEMETRÍA LOCAL</span><span class="hud-time-row"><span class="hud-utc">UTC−<br>3</span><time id="local-clock" data-utc-clock>--:--:--.--</time></span></span><a class="quick-access hud-quick" href="atlas.html?entry=1"><span aria-hidden="true">»</span><span>ACCESO<br>RÁPIDO</span></a></div>
   </header>
 
   <main class="gateway-main">

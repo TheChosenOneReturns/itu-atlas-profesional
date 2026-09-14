@@ -1,16 +1,6 @@
 import { animate, hover, stagger } from "motion";
 
 const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-const clock = document.querySelector("#local-clock");
-
-function updateLocalClock() {
-  const now = new Date();
-  clock.textContent = [now.getHours(), now.getMinutes(), now.getSeconds()].map(value => String(value).padStart(2, "0")).join(":");
-  clock.dateTime = now.toISOString();
-}
-
-updateLocalClock();
-setInterval(updateLocalClock, 1000);
 
 if (!prefersReducedMotion.matches) {
   animate(".gateway-header", { opacity: [0, 1], y: [-14, 0] }, { duration: 0.65, ease: "easeOut" });
