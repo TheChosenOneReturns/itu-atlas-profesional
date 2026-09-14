@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -60 120 120" fill="none" role="img" aria-label="shield"><style>
+    @keyframes spin-cw { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes spin-ccw { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+    @keyframes pulse-red { 0%, 100% { r: 4px; opacity: 1; filter: drop-shadow(0 0 2px #d52415); } 50% { r: 6.5px; opacity: 0.7; filter: drop-shadow(0 0 8px #ff3826); } }
+    @keyframes ping-ring { 0% { r: 6px; opacity: 1; stroke-width: 1.5; } 100% { r: 18px; opacity: 0; stroke-width: 0.5; } }
+    @keyframes radar-sweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes reticle-bracket { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    @keyframes glint-flare { 0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; } 50% { transform: scale(1.15) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 6px #00d2dc); } }
+    @keyframes rotor-orbit { 0% { transform: rotate(0deg); } 25% { transform: rotate(90deg); } 50% { transform: rotate(180deg); } 75% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }
+    @keyframes globe-spin { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 80; } }
+    @keyframes hazard-blink { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #d52415); } 50% { opacity: 0.4; filter: none; } }
+    @keyframes arrow-flow { 0% { transform: translate(0, 0); opacity: 0.4; } 50% { opacity: 1; } 100% { transform: translate(4px, -4px); opacity: 0.4; } }
+    @keyframes dash-scroll { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 32; } }
+
+    .bg { fill: #050608; }
+    .hud-teal { stroke: #00d2dc; stroke-width: 2; fill: none; }
+    .hud-red { stroke: #d52415; stroke-width: 2; fill: none; }
+    .hud-white { stroke: #ffffff; stroke-width: 2; fill: none; }
+    .txt-tag { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: #8c9da0; letter-spacing: 1.5px; }
+    .txt-sub { font-family: 'JetBrains Mono', monospace; font-size: 7px; fill: #4b595c; }
+    .txt-header { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; fill: #ffffff; letter-spacing: 2px; }
+
+    .anim-spin-cw { transform-origin: center; animation: spin-cw 12s linear infinite; }
+    .anim-spin-fast { transform-origin: center; animation: spin-cw 4s linear infinite; }
+    .anim-spin-ccw { transform-origin: center; animation: spin-ccw 16s linear infinite; }
+    .anim-radar { transform-origin: center; animation: radar-sweep 3s linear infinite; }
+    .anim-bracket { transform-origin: center; animation: reticle-bracket 2s ease-in-out infinite; }
+    .anim-flare { transform-origin: center; animation: glint-flare 3s ease-in-out infinite; }
+    .anim-rotor { transform-origin: center; animation: rotor-orbit 4s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; }
+    .anim-blink { animation: hazard-blink 1.5s ease-in-out infinite; }
+    .anim-pulse-red { animation: pulse-red 1.8s infinite ease-in-out; }
+    .anim-ping { animation: ping-ring 1.8s infinite cubic-bezier(0, 0.2, 0.8, 1); transform-origin: center; }
+    .anim-arrows { animation: arrow-flow 1.2s ease-in-out infinite alternate; }
+    .anim-dash { stroke-dasharray: 4 4; animation: dash-scroll 2s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<polygon fill="none" points="0,-45 38,-23 38,23 0,45 -38,23 -38,-23" stroke="#ffffff" stroke-width="2" />
+
+<g class="anim-blink">
+<polygon fill="rgba(213,36,21,0.25)" points="0,-24 22,16 -22,16" stroke="#d52415" stroke-width="2.5" />
+<line stroke="#ffffff" stroke-linecap="round" stroke-width="2.5" x1="0" x2="0" y1="-12" y2="4" />
+<circle cx="0" cy="11" fill="#ffffff" r="1.5" />
+</g>
+
+<circle cx="0" cy="-45" fill="#00d2dc" r="2.5" />
+<circle cx="0" cy="45" fill="#00d2dc" r="2.5" />
+</svg>

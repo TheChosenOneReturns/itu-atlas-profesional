@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="500" viewBox="0 0 1000 500" width="1000">
+<style>
+    @keyframes tunnel-zoom {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    @keyframes tunnel-focal-pulse {
+      0%, 100% { r: 3px; filter: drop-shadow(0 0 2px #d52415); }
+      50% { r: 5.5px; filter: drop-shadow(0 0 10px #ff3826); }
+    }
+    @keyframes wave-flow {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes wave-flow-reverse {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes pillar-rings {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes line-dash-crawl {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 30; }
+    }
+    @keyframes laser-glow {
+      0%, 100% { stroke: #00d2dc; filter: drop-shadow(0 0 2px #00d2dc); }
+      50% { stroke: #00f5ff; filter: drop-shadow(0 0 7px #00f5ff); }
+    }
+    @keyframes red-core-glow {
+      0%, 100% { stroke: #d52415; filter: drop-shadow(0 0 2px #d52415); }
+      50% { stroke: #ff3826; filter: drop-shadow(0 0 8px #ff3826); }
+    }
+
+    .bg { fill: #050608; }
+    .txt-tag { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: #8c9da0; letter-spacing: 1.5px; }
+    .txt-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; fill: #ffffff; letter-spacing: 2px; }
+    .wire-teal { stroke: #00d2dc; stroke-width: 1.5; fill: none; }
+    .wire-red { stroke: #d52415; stroke-width: 1.5; fill: none; }
+    .wire-dim { stroke: rgba(0, 116, 120, 0.35); stroke-width: 1; fill: none; }
+
+    .anim-tunnel { transform-origin: 140px 185px; animation: tunnel-zoom 4s ease-in-out infinite; }
+    .anim-tunnel-core { animation: tunnel-focal-pulse 1.8s infinite ease-in-out; }
+    .anim-wave-1 { animation: wave-flow 3.5s ease-in-out infinite; }
+    .anim-wave-2 { animation: wave-flow-reverse 4s ease-in-out infinite; }
+    .anim-wave-crest { animation: wave-flow 2.8s ease-in-out infinite; }
+    .anim-pillar-lift { animation: pillar-rings 5s ease-in-out infinite; }
+    .anim-crawl { stroke-dasharray: 6 3; animation: line-dash-crawl 1.8s linear infinite; }
+    .anim-laser { animation: laser-glow 2.5s infinite ease-in-out; }
+    .anim-red-laser { animation: red-core-glow 2s infinite ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect class="bg" height="500" width="1000" />
+<rect height="460" stroke="#162327" stroke-width="1.5" width="960" x="20" y="20" />
+
+<g transform="translate(40, 50)">
+<text class="txt-title">ITU // 3D WIREFRAME MESHES &amp; DISTORTED CYBER-GRIDS [ANIMATED]</text>
+<text class="txt-tag" x="0" y="16">ASSET SET 03: KINETIC DEPTH PORTALS, GRAVITATIONAL CONTOUR NETWORKS &amp; CYBER-PILLAR</text>
+<line stroke="#007478" stroke-width="1" x1="0" x2="920" y1="26" y2="26" />
+</g>
+
+<g transform="translate(40, 95)">
+<rect fill="#080c0e" height="350" stroke="#182428" stroke-width="1" width="280" />
+<text class="txt-tag" x="14" y="24">MESH // 01-PERSPECTIVE_TUNNEL</text>
+
+<g class="anim-tunnel">
+<g transform="translate(140, 185)">
+
+<rect height="260" stroke="#007478" stroke-width="1.5" width="220" x="-110" y="-130" />
+
+<rect height="200" stroke="rgba(0, 210, 220, 0.4)" stroke-width="1.2" width="170" x="-85" y="-100" />
+
+<rect height="144" stroke="rgba(0, 210, 220, 0.6)" stroke-width="1.2" width="120" x="-60" y="-72" />
+
+<rect class="wire-teal anim-laser" height="96" stroke-width="1.5" width="80" x="-40" y="-48" />
+
+<rect class="wire-red anim-red-laser" height="48" stroke-width="2" width="40" x="-20" y="-24" />
+
+<line class="wire-teal" stroke-width="1" x1="-110" x2="-20" y1="-130" y2="-24" />
+<line class="wire-red anim-red-laser" stroke-width="1.5" x1="110" x2="20" y1="-130" y2="-24" />
+<line class="wire-teal" stroke-width="1" x1="-110" x2="-20" y1="130" y2="24" />
+<line class="wire-teal" stroke-width="1" x1="110" x2="20" y1="130" y2="24" />
+
+<line class="wire-teal anim-crawl" stroke-width="1" x1="-110" x2="-20" y1="0" y2="0" />
+<line class="wire-teal anim-crawl" stroke-width="1" x1="110" x2="20" y1="0" y2="0" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="0" x2="0" y1="-130" y2="-24" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="0" x2="0" y1="130" y2="24" />
+
+<circle class="anim-tunnel-core" cx="0" cy="0" fill="#d52415" r="3" />
+<circle class="anim-crawl" cx="0" cy="0" r="8" stroke="#d52415" stroke-dasharray="2 2" stroke-width="1" />
+</g>
+</g>
+<text class="txt-tag" x="14" y="335">DEPTH // EXPONENTIAL_FOV [ACTIVE]</text>
+</g>
+
+<g transform="translate(360, 95)">
+<rect fill="#080c0e" height="350" stroke="#182428" stroke-width="1" width="280" />
+<text class="txt-tag" x="14" y="24">MESH // 02-WARPED_TERRAIN</text>
+<g transform="translate(20, 50)">
+
+<g class="anim-wave-2">
+<path class="wire-dim" d="M0,20 Q60,5 120,40 T240,20" />
+<path d="M0,45 Q60,20 120,65 T240,45" stroke="rgba(0,210,220,0.3)" stroke-width="1" />
+<path d="M0,70 Q60,35 120,90 T240,70" stroke="rgba(0,210,220,0.4)" stroke-width="1.2" />
+<path d="M0,95 Q60,50 120,115 T240,95" stroke="rgba(0,210,220,0.5)" stroke-width="1.2" />
+</g>
+
+<g class="anim-wave-crest">
+<path class="anim-red-laser" d="M0,120 Q60,65 120,140 T240,120" stroke="#d52415" stroke-width="2.5" />
+<path class="wire-teal anim-laser" d="M0,145 Q60,90 120,165 T240,145" stroke-width="1.8" />
+<path d="M0,170 Q60,115 120,190 T240,170" stroke="rgba(0,210,220,0.7)" stroke-width="1.2" />
+</g>
+
+<g class="anim-wave-1">
+<path class="wire-dim" d="M0,195 Q60,140 120,215 T240,195" />
+<path class="wire-dim" d="M0,220 Q60,165 120,240 T240,220" />
+<path class="wire-dim" d="M0,245 Q60,190 120,265 T240,245" />
+</g>
+
+<path d="M30,10 Q45,130 30,250" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+<path d="M70,10 Q95,130 70,250" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+<path class="anim-laser" d="M120,25 Q160,130 120,260" stroke="#ffffff" stroke-width="1.5" />
+<path d="M170,10 Q195,130 170,250" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+<path d="M210,10 Q225,130 210,250" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+
+<circle class="anim-tunnel-core" cx="120" cy="140" fill="#d52415" r="4.5" />
+<circle class="anim-crawl" cx="120" cy="140" r="10" stroke="#ffffff" stroke-width="1" />
+</g>
+<text class="txt-tag" x="14" y="335">GRAVITY_WELL // SENSOR_OSCILLATION</text>
+</g>
+
+<g transform="translate(680, 95)">
+<rect fill="#080c0e" height="350" stroke="#182428" stroke-width="1" width="280" />
+<text class="txt-tag" x="14" y="24">MESH // 03-CYBER_PILLAR</text>
+
+<g transform="translate(140, 160)">
+
+<ellipse class="anim-laser" cx="0" cy="-90" fill="none" rx="65" ry="18" stroke="#00d2dc" stroke-width="2" />
+
+<line class="wire-teal" stroke-width="1.5" x1="-65" x2="-65" y1="-90" y2="70" />
+<line class="wire-red anim-red-laser" stroke-width="1.5" x1="65" x2="65" y1="-90" y2="70" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="-35" x2="-35" y1="-75" y2="85" />
+<line stroke="#ffffff" stroke-width="1.2" x1="0" x2="0" y1="-72" y2="88" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="35" x2="35" y1="-75" y2="85" />
+
+<g class="anim-pillar-lift">
+<ellipse class="anim-crawl" cx="0" cy="-50" rx="65" ry="18" stroke="rgba(0,210,220,0.5)" stroke-width="1" />
+<ellipse class="anim-laser" cx="0" cy="-10" rx="65" ry="18" stroke="#00d2dc" stroke-width="1.8" />
+<ellipse class="anim-red-laser" cx="0" cy="30" rx="65" ry="18" stroke="#d52415" stroke-width="2" />
+</g>
+<ellipse cx="0" cy="70" rx="65" ry="18" stroke="#00d2dc" stroke-width="2" />
+
+<rect fill="#050608" height="16" stroke="#00d2dc" stroke-width="1" width="90" x="-45" y="-2" />
+<text class="txt-tag" fill="#ffffff" x="-36" y="10">ITU_PILLAR_01</text>
+</g>
+<text class="txt-tag" x="14" y="335">CORE_ARCHITECTURE // ROTATING_DATUM</text>
+</g>
+
+<g transform="translate(40, 465)">
+<text class="txt-tag">SPEC 2026 // GENERATIVE KINETIC MESHES // ITU TACTICAL TECHWEAR</text>
+</g>
+</svg>

@@ -16,12 +16,12 @@
   <div class="scanlines" aria-hidden="true"></div>
   <header class="gateway-header">
     <a class="gateway-brand" href="index.html" aria-label="ITU Atlas, inicio">
-      <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">// ATLAS</span>
+      <span class="brand-dot" aria-hidden="true"></span><span class="brand-itu">iTU</span><span class="brand-atlas">// ATLAS</span><img class="brand-glyph" src="assets/stitch-glyph-crosshair.svg" alt="" aria-hidden="true">
     </a>
     <div class="header-readouts" aria-label="Datos del atlas">
       <span>ARCH: <b>DESARROLLO DE SOFTWARE</b></span><i aria-hidden="true"></i><span>SECTOR: <b>ITU · UNCUYO</b></span><i aria-hidden="true"></i><span class="header-signal"><span class="signal-beacon" aria-hidden="true"></span> DATOS LOCALES <b>250 PERFILES</b></span>
     </div>
-    <div class="header-mode"><span>[PLAN_ITU]</span> MAPA CURRICULAR <b>LOCAL</b></div>
+    <div class="header-mode"><img src="assets/stitch-glyph-radar.svg" alt="" aria-hidden="true"><span>[PLAN_ITU]</span> MAPA CURRICULAR <b>LOCAL</b></div>
     <div class="header-right"><span class="clock-block"><span class="clock-label">TELEMETRÍA LOCAL</span><time id="local-clock">--:--:--</time></span><a class="quick-access" href="atlas.html?entry=1"><span aria-hidden="true">»</span> ACCESO RÁPIDO <span class="quick-arrow" aria-hidden="true">↗</span></a></div>
   </header>
 
@@ -48,6 +48,7 @@
         <div class="corner tl" aria-hidden="true"></div><div class="corner tr" aria-hidden="true"></div><div class="corner bl" aria-hidden="true"></div><div class="corner br" aria-hidden="true"></div><div class="console-scan" aria-hidden="true"></div>
         <div class="console-head"><span><i aria-hidden="true"></i> ITU_ATLAS // MAPA DE RELACIONES</span><span class="console-state">DATOS VERIFICADOS</span></div>
         <div class="radar-field"><span class="field-label">3 MATERIAS DE MUESTRA</span>
+          <img class="radar-mesh" src="assets/stitch-mesh-tunnel.svg" alt="" aria-hidden="true">
           <svg class="radar" viewBox="0 0 320 290" role="group" aria-label="Tres materias conectadas al plan; activá una señal para abrir sus relaciones">
             <title>Materias conectadas al plan ITU</title>
             <defs><linearGradient id="sweep-gradient"><stop stop-color="#00d2dc" stop-opacity=".18"/><stop offset="1" stop-color="#00d2dc" stop-opacity="0"/></linearGradient></defs>
@@ -63,14 +64,14 @@
           <span class="field-coordinate">VISTA CONCEPTUAL // SIN CORRELATIVIDADES INFERIDAS</span>
         </div>
         <nav class="console-links" aria-label="Modos de exploración"><a href="atlas.html?entry=1&view=timeline"><span>[01] TRAYECTORIA CURRICULAR</span><b>6 SEMESTRES ↗</b></a><a href="atlas.html?entry=1"><span>[02] MAPA MATERIA–PERFIL</span><b>2.551 RELACIONES ↗</b></a><a href="atlas.html?entry=1&view=list"><span>[03] CATÁLOGO LABORAL</span><b>250 PERFILES ↗</b></a></nav>
-        <div class="console-foot"><span class="barcode" aria-hidden="true"></span><span>PLAN ITU · UNCUYO <b>DESARROLLO DE SOFTWARE</b></span></div>
+        <div class="console-foot"><img class="barcode" src="assets/stitch-barcode.svg" alt="" aria-hidden="true"><span>PLAN ITU · UNCUYO <b>DESARROLLO DE SOFTWARE</b></span></div>
       </div>
     </section>
 
     <section class="feature-grid" aria-label="Qué podés explorar">
-      <a class="feature-card" href="atlas.html?entry=1"><img class="feature-motif" src="assets/stitch-orbit.svg" alt="" aria-hidden="true"><div><span>01 // CONEXIONES</span><small>[NODE_SYSTEM]</small></div><h2>UNA MATERIA, VARIOS CAMINOS</h2><p>Seleccioná un nodo para ver qué parte del programa aporta a distintos perfiles, con su aplicación concreta y sus límites.</p><b>ENTRAR AL MAPA ↗</b></a>
-      <a class="feature-card" href="atlas.html?entry=1&view=timeline"><img class="feature-motif" src="assets/stitch-tunnel.svg" alt="" aria-hidden="true"><div><span>02 // TRAYECTORIA</span><small>[SEM_01—06]</small></div><h2>SEIS SEMESTRES VISIBLES</h2><p>Explorá el orden de cursado y los tramos anuales. La línea temporal muestra el plan; no inventa correlatividades.</p><b>VER EL RECORRIDO ↗</b></a>
-      <a class="feature-card" href="atlas.html?entry=1&view=list"><img class="feature-motif" src="assets/stitch-contours.svg" alt="" aria-hidden="true"><div><span>03 // EVIDENCIA</span><small>[LABOR_AUDIT]</small></div><h2>PORCENTAJES EXPLICADOS</h2><p>Revisá 250 perfiles, las materias asociadas, las brechas para incorporarte y las fuentes detrás de cada estimación.</p><b>EXPLORAR PERFILES ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1"><img class="feature-motif" src="assets/stitch-glyph-orbit.svg" alt="" aria-hidden="true"><div><span>01 // CONEXIONES</span><small>[NODE_SYSTEM]</small></div><h2>UNA MATERIA, VARIOS CAMINOS</h2><p>Seleccioná un nodo para ver qué parte del programa aporta a distintos perfiles, con su aplicación concreta y sus límites.</p><b>ENTRAR AL MAPA ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=timeline"><img class="feature-motif mesh-motif" src="assets/stitch-mesh-tunnel.svg" alt="" aria-hidden="true"><div><span>02 // TRAYECTORIA</span><small>[SEM_01—06]</small></div><h2>SEIS SEMESTRES VISIBLES</h2><p>Explorá el orden de cursado y los tramos anuales. La línea temporal muestra el plan; no inventa correlatividades.</p><b>VER EL RECORRIDO ↗</b></a>
+      <a class="feature-card" href="atlas.html?entry=1&view=list"><img class="feature-motif mesh-motif" src="assets/stitch-mesh-wave.svg" alt="" aria-hidden="true"><div><span>03 // EVIDENCIA</span><small>[LABOR_AUDIT]</small></div><h2>PORCENTAJES EXPLICADOS</h2><p>Revisá 250 perfiles, las materias asociadas, las brechas para incorporarte y las fuentes detrás de cada estimación.</p><b>EXPLORAR PERFILES ↗</b></a>
     </section>
   </main>
 

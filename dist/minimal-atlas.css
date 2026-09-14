@@ -25,3 +25,35 @@
 .score-value,.role-card strong{color:#61dbe0}
 @media(max-width:600px){.map-surface:after{display:none}}
 @media(prefers-reduced-motion:reduce){.brand-mark i{animation:none}}
+
+/* Kinetic details extracted from the connected Stitch project. */
+.map-surface:after{inset:auto 4% 10% auto;width:250px;height:250px;background:url("assets/stitch-mesh-pillar.svg") center/contain no-repeat;transform:none;opacity:.18;animation:atlas-mesh-float 7s ease-in-out infinite}
+.topbar{overflow:hidden}
+.topbar::before{z-index:2}
+.topbar::after{z-index:2}
+.topbar-glyph{width:31px;height:31px;margin-left:5px;opacity:.85;filter:drop-shadow(0 0 7px #00d2dc78)}
+.topbar .brand:hover .topbar-glyph{opacity:1;transform:rotate(45deg);transition:transform .5s,opacity .3s}
+.view-switch button{position:relative;overflow:hidden;transition:color .22s,background .22s,box-shadow .22s}
+.view-switch button:hover{color:#fff;background:#16383b;box-shadow:inset 0 -2px #00d2dc,0 0 13px #00d2dc36}
+.view-switch button.active:before{content:"";position:absolute;inset:auto 10% 0;max-width:44px;height:2px;background:#00f5ff;box-shadow:0 0 10px #00f5ff;animation:active-track 3.8s ease-in-out infinite}
+.timeline-nav{top:305px}
+.map-surface{box-shadow:inset 0 1px #00d2dc28}
+.graph-node .node-icon{opacity:.82;filter:drop-shadow(0 0 4px #00d2dc7d);transition:opacity .28s,filter .28s}
+.graph-node:hover .node-icon,.graph-node:focus .node-icon{opacity:1;filter:drop-shadow(0 0 10px #00d2dcc9)}
+.graph-node .card-bg{stroke:#31575c;stroke-width:1.3}
+.graph-node .node-port{animation:node-port-beacon 2.8s ease-in-out infinite}
+.graph-node .node-reticle{stroke-width:1.6}
+.graph-node:focus-visible{outline:none}
+.graph-node:focus-visible .card-bg{stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 0 8px #00d2dc)}
+#edges .edge-line{opacity:.82;filter:drop-shadow(0 0 4px #00d2dc5c)}
+#edges .edge-pulse{opacity:.9}
+#stage-labels text:first-child{fill:#00d2dc}
+#stage-labels circle{fill:#00d2dc;animation:stage-beacon 2.5s ease-in-out infinite}
+.intro-copy:before{background-image:radial-gradient(#00d2dc55 .8px,transparent 1px),url("assets/stitch-mesh-tunnel.svg");background-size:28px 28px,190px 190px;background-repeat:repeat,no-repeat;background-position:0 0,right 7% bottom 6%;opacity:.28}
+@keyframes atlas-mesh-float{50%{transform:translateY(-14px);opacity:.27}}
+@keyframes active-track{50%{transform:translateX(30px);opacity:.6}}
+@keyframes node-port-beacon{50%{filter:drop-shadow(0 0 8px #00d2dc);opacity:.65}}
+@keyframes stage-beacon{50%{filter:drop-shadow(0 0 12px #00f5ff);opacity:.7}}
+@media(max-width:760px){.topbar-glyph{width:23px;height:23px;margin-left:1px}}
+@media(max-width:600px){.map-surface:after{display:none}.topbar-glyph{display:none}.intro-copy:before{background-size:28px 28px,110px 110px}.timeline-nav{top:325px}}
+@media(prefers-reduced-motion:reduce){.map-surface:after,.view-switch button.active:before,.graph-node .node-port,#stage-labels circle{animation:none!important}}

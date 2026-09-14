@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-75 -115 150 220" fill="none" role="img" aria-label="pillar"><style>
+    @keyframes tunnel-zoom {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    @keyframes tunnel-focal-pulse {
+      0%, 100% { r: 3px; filter: drop-shadow(0 0 2px #d52415); }
+      50% { r: 5.5px; filter: drop-shadow(0 0 10px #ff3826); }
+    }
+    @keyframes wave-flow {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes wave-flow-reverse {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes pillar-rings {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes line-dash-crawl {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 30; }
+    }
+    @keyframes laser-glow {
+      0%, 100% { stroke: #00d2dc; filter: drop-shadow(0 0 2px #00d2dc); }
+      50% { stroke: #00f5ff; filter: drop-shadow(0 0 7px #00f5ff); }
+    }
+    @keyframes red-core-glow {
+      0%, 100% { stroke: #d52415; filter: drop-shadow(0 0 2px #d52415); }
+      50% { stroke: #ff3826; filter: drop-shadow(0 0 8px #ff3826); }
+    }
+
+    .bg { fill: #050608; }
+    .txt-tag { font-family: 'JetBrains Mono', monospace; font-size: 8px; fill: #8c9da0; letter-spacing: 1.5px; }
+    .txt-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; fill: #ffffff; letter-spacing: 2px; }
+    .wire-teal { stroke: #00d2dc; stroke-width: 1.5; fill: none; }
+    .wire-red { stroke: #d52415; stroke-width: 1.5; fill: none; }
+    .wire-dim { stroke: rgba(0, 116, 120, 0.35); stroke-width: 1; fill: none; }
+
+    .anim-tunnel { transform-origin: 140px 185px; animation: tunnel-zoom 4s ease-in-out infinite; }
+    .anim-tunnel-core { animation: tunnel-focal-pulse 1.8s infinite ease-in-out; }
+    .anim-wave-1 { animation: wave-flow 3.5s ease-in-out infinite; }
+    .anim-wave-2 { animation: wave-flow-reverse 4s ease-in-out infinite; }
+    .anim-wave-crest { animation: wave-flow 2.8s ease-in-out infinite; }
+    .anim-pillar-lift { animation: pillar-rings 5s ease-in-out infinite; }
+    .anim-crawl { stroke-dasharray: 6 3; animation: line-dash-crawl 1.8s linear infinite; }
+    .anim-laser { animation: laser-glow 2.5s infinite ease-in-out; }
+    .anim-red-laser { animation: red-core-glow 2s infinite ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<ellipse class="anim-laser" cx="0" cy="-90" fill="none" rx="65" ry="18" stroke="#00d2dc" stroke-width="2" />
+
+<line class="wire-teal" stroke-width="1.5" x1="-65" x2="-65" y1="-90" y2="70" />
+<line class="wire-red anim-red-laser" stroke-width="1.5" x1="65" x2="65" y1="-90" y2="70" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="-35" x2="-35" y1="-75" y2="85" />
+<line stroke="#ffffff" stroke-width="1.2" x1="0" x2="0" y1="-72" y2="88" />
+<line stroke="rgba(0,210,220,0.4)" stroke-width="1" x1="35" x2="35" y1="-75" y2="85" />
+
+<g class="anim-pillar-lift">
+<ellipse class="anim-crawl" cx="0" cy="-50" rx="65" ry="18" stroke="rgba(0,210,220,0.5)" stroke-width="1" />
+<ellipse class="anim-laser" cx="0" cy="-10" rx="65" ry="18" stroke="#00d2dc" stroke-width="1.8" />
+<ellipse class="anim-red-laser" cx="0" cy="30" rx="65" ry="18" stroke="#d52415" stroke-width="2" />
+</g>
+<ellipse cx="0" cy="70" rx="65" ry="18" stroke="#00d2dc" stroke-width="2" />
+
+<rect fill="#050608" height="16" stroke="#00d2dc" stroke-width="1" width="90" x="-45" y="-2" />
+<text class="txt-tag" fill="#ffffff" x="-36" y="10">ITU_PILLAR_01</text>
+</svg>
