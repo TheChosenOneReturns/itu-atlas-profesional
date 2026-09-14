@@ -1,0 +1,53 @@
+/* The whole graph stays on one continuous desktop canvas. */
+.family-ghost{position:absolute;z-index:0;left:36%;right:4%;top:54%;transform:translateY(-43%) scale(.97);opacity:0;pointer-events:none;transition:opacity .42s ease,transform .6s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.family-ghost.active{opacity:1;transform:translateY(-43%) scale(1)}
+.family-ghost span{display:block;margin-bottom:12px;color:#d52415;font:700 11px/1.4 var(--tech-mono);letter-spacing:.3em;text-shadow:0 0 10px #d5241580}
+.family-ghost strong{display:block;max-width:100%;font:800 clamp(58px,9vw,150px)/.88 var(--tech-display);letter-spacing:-.06em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px #61dfe943;text-shadow:0 0 32px #00d2dc13;overflow-wrap:anywhere}
+#graph{position:relative;z-index:1}
+.board-title{z-index:3}
+.node-score{font-family:var(--tech-mono);font-variant-numeric:tabular-nums;letter-spacing:-.06em}
+
+/* The timeline title is a small transient HUD on desktop. */
+.timeline-mode .board-title{top:154px;left:40px;width:min(410px,calc(100% - 80px));max-width:none;padding:15px 18px 17px;background:#071215ee;border:1px solid #31575b;box-shadow:inset 0 2px #00d2dc68,0 18px 40px #000b;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));opacity:0;transform:translateY(-12px);pointer-events:none;transition:opacity .36s ease,transform .36s ease}
+.timeline-mode .board-title .eyebrow{font-size:9px}.timeline-mode .board-title h2{font-size:22px;line-height:1.1;letter-spacing:-.04em;margin:7px 0}.timeline-mode .board-title p{font-size:11px;line-height:1.5}
+.timeline-mode .timeline-nav{top:298px;left:40px;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .36s ease,transform .36s ease}
+.timeline-mode.timeline-hud-visible .board-title,.timeline-mode.timeline-hud-visible .timeline-nav{opacity:1;transform:none;pointer-events:auto}
+.timeline-mode .timeline-nav button{font-size:10px;padding:7px 10px}
+
+/* Percentage: a consistent numeric baseline, with a colour and meter tied to the score. */
+.role-card{--score-color:#00d2dc;min-height:220px}
+.role-card:before{border-top-color:var(--score-color)}
+.role-card:hover{border-color:var(--score-color);box-shadow:0 0 20px color-mix(in srgb,var(--score-color) 24%,transparent)}
+.role-card::after{content:attr(data-family);position:absolute;z-index:0;left:14px;right:10px;top:35%;font:800 clamp(30px,3vw,52px)/.9 var(--tech-display);letter-spacing:-.06em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--score-color) 34%,transparent);overflow-wrap:anywhere;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .3s ease,transform .45s ease}
+.role-card:hover::after,.role-card:focus-visible::after{opacity:.52;transform:none}
+.role-card>*{position:relative;z-index:1}
+.role-card .role-card-score{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;margin-top:auto}
+.role-card .score-stack{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0;color:var(--score-color)}
+.role-card strong,.score-value{display:inline-flex;align-items:baseline;gap:1px;color:var(--score-color);font-family:var(--tech-mono);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.075em;line-height:1}
+.role-card strong{font-size:34px}.role-card strong>span{font-size:inherit;line-height:1;color:inherit}.role-card strong small{font:700 22px/1 var(--tech-mono);letter-spacing:0;color:inherit}
+.role-card .chip{align-self:flex-end;white-space:nowrap}
+.score-eq{display:inline-flex;align-items:flex-end;gap:3px;height:29px;line-height:1}
+.score-eq i{display:block;width:4px;height:var(--bar-h);background:#315052;opacity:.32;transform-origin:bottom;transition:height .3s,opacity .3s,background .3s;box-shadow:none}
+.score-eq i.on{background:var(--score-color);opacity:.9;box-shadow:0 0 6px color-mix(in srgb,var(--score-color) 50%,transparent)}
+.role-card:hover .score-eq i.on{animation:equalizer .8s ease-in-out infinite alternate;animation-delay:calc(var(--bar-i) * -90ms)}
+.role-card:hover strong{filter:drop-shadow(0 0 7px var(--score-color))}
+.score-block .score-value{font-size:64px}.score-block .score-value small{font-size:31px;line-height:1;color:inherit}
+.score-block .score-rail span{background:var(--score-color)}.score-block .score-eq{margin-top:16px;height:30px;gap:5px}.score-block .score-eq i{width:8px}
+@keyframes equalizer{to{transform:scaleY(.52)}}
+
+/* Focused information appears over a dimmed canvas instead of taking a side panel. */
+.detail-backdrop{position:fixed;inset:0;z-index:19;background:#02090bb8;backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .36s ease,visibility .36s}
+.detail-backdrop.open{opacity:1;visibility:visible;pointer-events:auto}
+.details,.details.open{position:fixed;top:50%;left:50%;right:auto;bottom:auto;width:min(790px,calc(100vw - 44px));max-width:none;max-height:min(82dvh,850px);height:auto;display:block;overflow-y:auto;z-index:20;background:#091316f7;border:1px solid #4b8589;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));box-shadow:0 30px 100px #000d,0 0 40px #00d2dc1b;scrollbar-gutter:stable;animation:none}
+.details{opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-46%) scale(.97);transition:opacity .3s ease,transform .42s cubic-bezier(.2,.8,.2,1),visibility .3s}
+.details.open{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.details:before{z-index:3}.details:after{display:none}
+.modal-chrome{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;min-height:43px;padding:0 15px 0 24px;background:#081012f7;border-bottom:1px solid #2d5559;box-shadow:inset 0 2px #d52415;font:700 10px/1.2 var(--tech-mono);letter-spacing:.16em;color:#86cbd0}
+.modal-close{font:400 26px/1 var(--tech-mono);color:#e5f6f6;padding:4px 10px;border:1px solid transparent;border-radius:0}
+.modal-close:hover{color:#fff;background:#243d40;border-color:#00d2dc}
+.details .detail-close{display:none!important}
+.details .detail-top{padding-top:24px}.details .detail-top h2{font-size:clamp(26px,3vw,39px)}
+.details .detail-top,.details .detail-section{padding-left:clamp(24px,4vw,40px);padding-right:clamp(24px,4vw,40px)}
+.details .detail-section p{max-width:68ch}
+@media(max-width:760px){.timeline-mode .board-title{top:185px;left:21px;width:calc(100% - 42px);opacity:1;transform:none;pointer-events:auto}.timeline-mode .timeline-nav{top:330px;left:21px;right:21px;max-width:calc(100% - 42px);opacity:1;transform:none;pointer-events:auto;overflow-x:auto}.timeline-mode .board-title h2{font-size:19px}.family-ghost{left:15%;right:5%;top:55%}.family-ghost strong{font-size:42px}.details,.details.open{width:calc(100vw - 20px);max-height:calc(100dvh - 125px)}.details .detail-top,.details .detail-section{padding-left:21px;padding-right:21px}.modal-chrome{padding-left:17px}}
+@media(prefers-reduced-motion:reduce){.family-ghost,.timeline-mode .board-title,.timeline-mode .timeline-nav,.detail-backdrop,.details,.details.open{transition:none!important}.role-card:hover .score-eq i.on{animation:none!important}}

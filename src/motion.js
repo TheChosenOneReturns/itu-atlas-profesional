@@ -23,8 +23,9 @@ function animateGraph() {
     const graph = $("#graph");
     const nodes = [...graph.querySelectorAll(".graph-node")];
     const paths = [...graph.querySelectorAll("#edges .edge-line")];
-    if (nodes.length) animate(nodes, { opacity: [0, 1] }, { duration: 0.52, delay: stagger(0.035, { startDelay: 0.08 }), ease: "easeOut" });
-    if (paths.length) animate(paths, { opacity: [0, 0.92], pathLength: [0, 1] }, { duration: 0.8, delay: stagger(0.06), ease: "easeOut" });
+    const nodeStep = nodes.length > 80 ? 0.004 : nodes.length > 24 ? 0.012 : 0.035;
+    if (nodes.length) animate(nodes, { opacity: [0, 1] }, { duration: 0.52, delay: stagger(nodeStep, { startDelay: 0.08 }), ease: "easeOut" });
+    if (paths.length) animate(paths, { opacity: [0, 0.92], pathLength: [0, 1] }, { duration: 0.8, delay: stagger(Math.min(nodeStep, 0.025)), ease: "easeOut" });
     hoverCleanup = hover(".graph-node", (node) => {
       const shell = node.querySelector(".node-shell");
       const icon = node.querySelector(".node-icon");
@@ -39,11 +40,14 @@ function animateDetail() {
   if (reduced.matches) return;
   const panel = $("#details");
   if (!panel?.classList.contains("open")) return;
-  animate(panel, { opacity: [0, 1], x: [22, 0] }, { duration: 0.36, ease: "easeOut" });
+  const chrome = panel.querySelector(".modal-chrome");
+  if (chrome) animate(chrome, { opacity: [0, 1], y: [-8, 0] }, { duration: 0.3, ease: "easeOut" });
   const sections = panel.querySelectorAll(".detail-top, .detail-section");
   animate(sections, { opacity: [0, 1], y: [12, 0] }, { duration: 0.38, delay: stagger(0.045), ease: "easeOut" });
   const bar = panel.querySelector(".score-rail span");
   if (bar) animate(bar, { scaleX: [0, 1] }, { duration: 0.95, ease: "easeOut" });
+  const meters = panel.querySelectorAll(".score-eq i.on");
+  if (meters.length) animate(meters, { scaleY: [0.15, 1] }, { duration: 0.4, delay: stagger(0.04), ease: "easeOut" });
 }
 
 function animateCatalogue() {
