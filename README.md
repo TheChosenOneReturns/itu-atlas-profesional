@@ -2,7 +2,23 @@
 
 Sitio estático en español para explorar 250 perfiles laborales, 33 registros de materias, 2.551 relaciones y 79 fuentes. La portada Techwear abre el mapa, la trayectoria o el catálogo. La vista Trayectoria organiza las materias en seis semestres, conserva los tramos de materias anuales y distingue las alternativas optativas.
 
+**Sitio publicado:** [thechosenonereturns.github.io/itu-atlas-profesional](https://thechosenonereturns.github.io/itu-atlas-profesional/)
+
 Los porcentajes son estimaciones de preparación curricular; no representan probabilidades de empleo. La metodología, sus límites y las referencias están disponibles dentro del sitio.
+
+## Lectura de nodos y evidencia
+
+Los nodos vinculados a una materia o a un perfil abren una ficha de la relación con cuatro partes: contenido del programa, interpretación del vínculo, límite documental y demostración práctica propuesta. Incluyen el identificador de fuente y las páginas registradas. Desde esa ficha se puede abrir la materia o el perfil completo.
+
+Las categorías visibles son N (aporte directo parcial, llamado «Aporte nuclear parcial» en el CSV), B (base transferible), T (transversal) y C (práctica condicionada). El color y el trazo identifican categorías; el grosor de las líneas no representa una intensidad medida. Las conexiones de familias son agrupaciones editoriales.
+
+Cuando la aplicación de una relación repite el aporte global del perfil, se identifica como síntesis de varias materias. No se atribuye todo el texto a una materia aislada. Las actividades de validación se presentan como propuestas, no como entregas o resultados comprobados. El porcentaje se conserva en la ficha del perfil junto con sus dimensiones y cálculo; no se asigna a los vínculos.
+
+La revisión de presentación conserva los datos de la investigación. `node verify-evidence.cjs` comprueba su igualdad con la fuente, la representación de los 2.551 vínculos y las fichas y mapas de las 33 materias y 250 perfiles con y sin aportes transversales. Los estilos de esta revisión están en `dist/evidence.css`.
+
+## Publicación
+
+La rama `main` despliega únicamente `dist/` en GitHub Pages mediante `.github/workflows/pages.yml`. El proyecto se compila y verifica antes de crear el artefacto de publicación.
 
 ## Archivos
 

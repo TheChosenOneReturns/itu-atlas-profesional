@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node serve.mjs",
     "dev": "node serve.mjs",
+    "verify": "node verify-evidence.cjs",
     "build": "npm run build:motion && npm run build:landing",
     "build:motion": "esbuild src/motion.js --bundle --minify --format=iife --target=es2020 --outfile=dist/motion.bundle.js",
     "build:landing": "esbuild src/landing.js --bundle --minify --format=iife --target=es2020 --outfile=dist/landing.bundle.js"

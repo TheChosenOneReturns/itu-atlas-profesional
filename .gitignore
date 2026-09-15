@@ -1,4 +1,11 @@
 .sites-runtime/
 node_modules/
+.openai/
+reference/
+.codex/
 .env
+.env.*
+*.py
 *.log
+Thumbs.db
+.DS_Store
