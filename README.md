@@ -14,7 +14,7 @@ Las categorías visibles son N (aporte directo parcial, llamado «Aporte nuclear
 
 Cuando la aplicación de una relación repite el aporte global del perfil, se identifica como síntesis de varias materias. No se atribuye todo el texto a una materia aislada. Las actividades de validación se presentan como propuestas, no como entregas o resultados comprobados. El porcentaje se conserva en la ficha del perfil junto con sus dimensiones y cálculo; no se asigna a los vínculos.
 
-La revisión de presentación conserva los datos de la investigación. `node verify-evidence.cjs` comprueba su igualdad con la fuente, la representación de los 2.551 vínculos y las fichas y mapas de las 33 materias y 250 perfiles con y sin aportes transversales. Los estilos de esta revisión están en `dist/evidence.css`.
+La revisión de presentación conserva los datos de la investigación. `node verify-evidence.cjs` comprueba la integridad de los 2.551 vínculos y las fichas y mapas de las 33 materias y 250 perfiles con y sin aportes transversales. Cuando la copia maestra local está disponible, también comprueba su igualdad. Los estilos de esta revisión están en `dist/evidence.css`.
 
 ## Publicación
 

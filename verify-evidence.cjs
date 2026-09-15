@@ -4,9 +4,22 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 const root = __dirname;
 const dataset = JSON.parse(fs.readFileSync(path.join(root,'dist/data.json'),'utf8'));
-const original = JSON.parse(fs.readFileSync(path.join(root,'../output/investigacion_laboral_itu/datos_web.json'),'utf8'));
-assert.deepEqual(dataset.relaciones,original.relaciones,'Las relaciones deben conservar la investigación original');
-assert.deepEqual(dataset.puestos,original.puestos,'No alterar los puntajes ni los perfiles');
+const originalPath = path.join(root,'../output/investigacion_laboral_itu/datos_web.json');
+const hasOriginal = fs.existsSync(originalPath);
+if(hasOriginal){
+  const original = JSON.parse(fs.readFileSync(originalPath,'utf8'));
+  assert.deepEqual(dataset.relaciones,original.relaciones,'Las relaciones deben conservar la investigación original');
+  assert.deepEqual(dataset.puestos,original.puestos,'No alterar los puntajes ni los perfiles');
+}
+assert.equal(dataset.relaciones.length,2551,'El sitio debe incluir las 2.551 relaciones publicadas');
+assert.equal(dataset.puestos.length,250,'El sitio debe incluir los 250 perfiles publicados');
+assert.equal(dataset.materias.length,33,'El sitio debe incluir las 33 materias publicadas');
+const subjectIds = new Set(dataset.materias.map(x=>x.materia_id));
+const roleIds = new Set(dataset.puestos.map(x=>x.puesto_id));
+for(const relation of dataset.relaciones){
+  assert(subjectIds.has(relation.materia_id),`Materia inexistente: ${relation.materia_id}`);
+  assert(roleIds.has(relation.puesto_id),`Perfil inexistente: ${relation.puesto_id}`);
+}
 const elements = new Map();
 function element(key){if(!elements.has(key))elements.set(key,{innerHTML:'',textContent:'',hidden:false,scrollTop:0,style:{setProperty(){}},classList:{add(){},remove(){},toggle(){},contains(){return false}},setAttribute(){},addEventListener(){},insertAdjacentHTML(_,html){this.innerHTML+=html},getBoundingClientRect(){return {width:1280,height:720}},querySelector(){return element('child')},querySelectorAll(){return []}});return elements.get(key)}
 const context = vm.createContext({console,URLSearchParams,location:{search:''},document:{querySelector:element,body:element('body')},innerWidth:1280,requestAnimationFrame(){},setTimeout(){},clearTimeout(){}});
@@ -39,5 +52,5 @@ for(const transverse of [false,true]){
     }
   }
 }
-const report={relations:dataset.relaciones.length,profiles:dataset.puestos.length,subjects:dataset.materias.length,sharedProfileSummaries:shared,sourceDataUnchanged:true,detailRenders:dataset.relaciones.length+2*(dataset.puestos.length+dataset.materias.length),result:'OK'};
+const report={relations:dataset.relaciones.length,profiles:dataset.puestos.length,subjects:dataset.materias.length,sharedProfileSummaries:shared,sourceComparison:hasOriginal?'OK':'fuente maestra no incluida; integridad interna verificada',detailRenders:dataset.relaciones.length+2*(dataset.puestos.length+dataset.materias.length),result:'OK'};
 console.log(JSON.stringify(report,null,2));
